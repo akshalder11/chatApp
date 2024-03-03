@@ -13,7 +13,12 @@ export default {
       gilroy400: ["Gilroy-SemiBold", "sans-serif"],
       gilroy500: ["Gilroy-Bold", "sans-serif"],
       gilroy600: ["Gilroy-ExtraBold", "sans-serif"],
+      avenir100: ["Avenir-Book", "sans-serif"],
+      avenir200: ["Avenir-Roman", "sans-serif"],
+      avenir300: ["Avenir-Medium", "sans-serif"],
+      productSans100: ["ProductSans-Regular", "sans-serif"],
+      productSans200: ["ProductSans-Bold", "sans-serif"],
     }
   },
-  plugins: [require("daisyui")],
+  plugins: [],
 }

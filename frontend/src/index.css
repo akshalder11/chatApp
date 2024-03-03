@@ -33,3 +33,28 @@
     font-family: "Gilroy-ExtraBold";
     src: url("../public/fonts/GILROY-EXTRABOLD.OTF");
   }
+
+  @font-face {
+    font-family: "Avenir-Medium";
+    src: url("../public/fonts/AvenirLTStd-Medium.otf");
+  }
+ 
+  @font-face {
+    font-family: "Avenir-Book";
+    src: url("../public/fonts/AvenirLTStd-Book.otf");
+  }
+ 
+  @font-face {
+    font-family: "Avenir-Roman";
+    src: url("../public/fonts/AvenirLTStd-Roman.otf");
+  }
+ 
+  @font-face {
+    font-family: "ProductSans-Regular";
+    src: url("../public/fonts/ProductSansRegular.ttf");
+  }
+ 
+  @font-face {
+    font-family: "ProductSans-Bold";
+    src: url("../public/fonts/ProductSansBold.ttf");
+  }
