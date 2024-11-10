@@ -26,7 +26,6 @@ const useSignUp = () => {
 
       localStorage.setItem("currentUser", JSON.stringify(res));
       setAuthUser(res);
-
     } catch (error) {
       console.log("Error", error);
     } finally {

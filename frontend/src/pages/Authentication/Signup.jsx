@@ -15,7 +15,7 @@ const Signup = () => {
     const data = getValues();
     console.log("SignUp Data", data);
 
-    insideSignUp(data);
+    await insideSignUp(data);
   };
 
   return (
