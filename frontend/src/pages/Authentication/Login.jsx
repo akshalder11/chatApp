@@ -1,11 +1,23 @@
 import React from "react";
-import styles from "./Login.module.css";
+import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import emailIcon from "../../assets/icons/ic_baseline-mark-email-unread.svg";
 import passwordIcon from "../../assets/icons/ri_lock-password-fill.svg";
 import googleIcon from "../../assets/icons/GoogleIcon.svg";
 import closeIcon from "../../assets/icons/close.svg";
+import useLogIn from "../../hooks/useLogIn";
 
 const Login = () => {
+  const { register, getValues } = useForm();
+  const { loading, insideLogIn } = useLogIn();
+
+  const loginButton = async() => {
+    const data = getValues()
+    console.log("Login Data", data)
+
+    await insideLogIn(data);
+  }
+
   return (
     <div className="p-4 h-screen w-screen flex  items-center justify-center bg-[#fefefed3]">
       <div className="p-10 pb-8 rounded-2xl w-[450px] flex flex-col bg-[#fefefe]">
@@ -27,7 +39,7 @@ const Login = () => {
           </div>
 
           {/* Form */}
-          <div className="formSection my-8">
+          <div className="formSection mt-8">
             {/* Email Field */}
             <div className="email flex my-4">
               <div className="leftEmail bg-[#f1f1f1]  w-[85px]  h-[56px] rounded-l-full border border-[#e9e8e8] flex items-center">
@@ -38,6 +50,7 @@ const Login = () => {
                   type="text"
                   placeholder="Enter email "
                   className="focus:outline-none text-[#aaa] w-full tracking-wide"
+                  {...register('logIn.email')}
                 />
               </div>
             </div>
@@ -52,11 +65,12 @@ const Login = () => {
                   type="password"
                   placeholder="Enter password "
                   className="focus:outline-none text-[#aaa] w-full tracking-wide"
+                  {...register('logIn.password')}
                 />
               </div>
             </div>
             <div className="formButtons flex justify-between mt-8 mb-4 max-[420px]:flex-col max-[420px]:items-center">
-              <button className="h-[50px] w-[136px] max-[420px]:w-[180px] bg-[#FFC700] text-[#2b2b2b] rounded-full font-productSans200 tracking-widest uppercase">
+              <button onClick={loginButton} className="h-[50px] w-[136px] max-[420px]:w-[180px] bg-[#FFC700] text-[#2b2b2b] rounded-full font-productSans200 tracking-widest uppercase">
                 Login
               </button>
               <button className="font-productSans100 tracking-wide text-[#aaa] w-fit max-[420px]:my-6">
@@ -64,7 +78,7 @@ const Login = () => {
               </button>
             </div>
           </div>
-          <div className="mid flex items-center justify-center mb-12">
+          <div className="mid flex items-center justify-center mb-8">
             <p className="alternate font-productSans200 tracking-widest uppercase text-[#626262] text-[14px]">
               Or
             </p>
@@ -75,11 +89,14 @@ const Login = () => {
               Login with Google
             </p>
           </button>
-          <div className="font-productSans100 tracking-wide text-[#aaa] text-[15px] mt-14 max-[420px]: text-center">
+          <div className="font-productSans100 tracking-wide text-[#aaa] text-[15px] mt-10 max-[420px]: text-center">
             Don't have account ?{" "}
-            <button className="font-productSans200 tracking-widest uppercase text-[#626262] min-[371px]:ml-2">
+            <Link
+              to="/signUp"
+              className="font-productSans200 tracking-widest uppercase text-[#626262] min-[371px]:ml-2"
+            >
               Create Here
-            </button>
+            </Link>
           </div>
         </div>
       </div>
